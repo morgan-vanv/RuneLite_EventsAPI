@@ -34,18 +34,18 @@ public interface EventsAPIConfig extends Config
 	@ConfigItem(
 			position = 3,
 			keyName = "emitPlayerState",
-			name = "Periodically Emit Player Status (HP, RUN, ETC)",
+			name = "Periodically Emit Player Status",
 			description = "Sends HP, Prayer, and Run Energy information periodically, as well as stun notifications"
 	)
 	default boolean emitPlayerState() { return true; }
 
-	@ConfigItem(
-			position = 4,
-			keyName = "emitAnimationStatus",
-			name = "TODO: Emit Animation Status Change",
-			description = "Triggers on animation change (maybe)"
-	)
-	default boolean emitAnimationState() { return true; }
+	//@ConfigItem(
+	//		position = 4,
+	//		keyName = "emitAnimationStatus",
+	//		name = "TODO: Emit Animation Status Change",
+	//		description = "Triggers on animation change (maybe)"
+	//)
+	//default boolean emitAnimationState() { return false; }
 
 	@ConfigItem
 			(

@@ -14,6 +14,10 @@ general logging, as potentially even tournament purposes.
 
 More information will come on the README in the future as this project becomes more defined in scope and purpose
 
+### TODO:
+
+- 
+
 ### Future Features / Potential Use Cases
 
 - Blog style webpage that shows a live status of your character (location, skills, etc.)
