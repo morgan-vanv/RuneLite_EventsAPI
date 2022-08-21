@@ -35,7 +35,7 @@ public interface EventsAPIConfig extends Config
 			position = 3,
 			keyName = "emitPlayerState",
 			name = "Periodically Emit Player Status",
-			description = "Sends HP, Prayer, and Run Energy information periodically, as well as stun notifications"
+			description = "Sends HP, Prayer, and Run Energy information periodically"
 	)
 	default boolean emitPlayerState() { return true; }
 
