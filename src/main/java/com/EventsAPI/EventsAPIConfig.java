@@ -97,5 +97,14 @@ public interface EventsAPIConfig extends Config
 	)
 	default boolean emitLoginState() { return true; }
 
+	@ConfigItem(
+			keyName = "Bearer Token",
+			name = "bearerToken",
+			description = "Unique api token to provided"
+	)
+	default String bearerToken()
+	{
+		return "token";
+	}
 
 }
