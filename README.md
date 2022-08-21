@@ -3,7 +3,7 @@
 
 **NOTE: This plugin was heavily inspired by the OSRSEvents Plugin by llamaXc [(REPO)](targetURL="https://github.com/llamaXc/osrs-events")**
     
-    [(REPO)](https://github.com/llamaXc/osrs-events)
+    https://github.com/llamaXc/osrs-events
 
 EventsAPI simply builds off and adapts their foundation for my uses, so credit to llamaXc as well as all of their contributors
 
