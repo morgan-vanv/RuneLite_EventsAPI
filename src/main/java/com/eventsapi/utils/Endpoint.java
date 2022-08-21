@@ -1,4 +1,4 @@
-package com.EventsAPI.utils;
+package com.eventsapi.utils;
 
 public final class Endpoint {
     public static final String NPC_KILL_ENDPOINT = "npc_kill/";

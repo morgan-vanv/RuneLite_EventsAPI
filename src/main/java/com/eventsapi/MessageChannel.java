@@ -1,6 +1,6 @@
-package com.EventsAPI;
+package com.eventsapi;
 
-import com.EventsAPI.interfaces.Sendable;
+import com.eventsapi.interfaces.Sendable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

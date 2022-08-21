@@ -1,4 +1,4 @@
-package com.EventsAPI;
+package com.eventsapi;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;

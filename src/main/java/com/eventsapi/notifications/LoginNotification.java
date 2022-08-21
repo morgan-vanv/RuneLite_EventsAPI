@@ -1,8 +1,8 @@
-package com.EventsAPI.notifications;
+package com.eventsapi.notifications;
 
-import com.EventsAPI.enums.LOGIN_STATE;
-import com.EventsAPI.interfaces.Sendable;
-import com.EventsAPI.utils.Endpoint;
+import com.eventsapi.enums.LOGIN_STATE;
+import com.eventsapi.interfaces.Sendable;
+import com.eventsapi.utils.Endpoint;
 import lombok.Getter;
 import lombok.Setter;
 

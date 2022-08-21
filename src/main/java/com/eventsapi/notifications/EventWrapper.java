@@ -1,7 +1,7 @@
-package com.EventsAPI.notifications;
+package com.eventsapi.notifications;
 
 import com.google.gson.Gson;
-import com.EventsAPI.pojos.PlayerInfo;
+import com.eventsapi.pojos.PlayerInfo;
 import net.runelite.api.coords.WorldPoint;
 
 import java.time.Instant;

@@ -1,6 +1,6 @@
-package com.EventsAPI.interfaces;
+package com.eventsapi.interfaces;
 
-import com.EventsAPI.notifications.EventWrapper;
+import com.eventsapi.notifications.EventWrapper;
 
 public interface Sendable {
     public abstract EventWrapper getEventWrapper();

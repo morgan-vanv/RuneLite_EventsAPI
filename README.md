@@ -37,7 +37,7 @@ More information will come on the README in the future as this project becomes m
 
 ### TODO:
 
-- make it even more betterer
+- make it even more betterer 
 - do work on the logging / information representation side to identify potential future data category additions
 - explore if there is a way to generate this type of stuff dynamically, give user full control on what triggers their
     requests and what data they contain

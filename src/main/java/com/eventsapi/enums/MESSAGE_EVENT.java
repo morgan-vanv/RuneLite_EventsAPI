@@ -1,4 +1,4 @@
-package com.EventsAPI.enums;
+package com.eventsapi.enums;
 
 public enum MESSAGE_EVENT {
     LEVEL,

@@ -1,10 +1,9 @@
-package com.EventsAPI;
+package com.eventsapi;
 
-import com.EventsAPI.interfaces.ApiConnectable;
+import com.eventsapi.interfaces.ApiConnectable;
 //import com.EventsAPI.interfaces.EventsConfig;
-import com.EventsAPI.EventsAPIConfig;
-import com.EventsAPI.interfaces.Sendable;
-import com.EventsAPI.notifications.*;
+import com.eventsapi.interfaces.Sendable;
+import com.eventsapi.notifications.*;
 import net.runelite.api.Client;
 import okhttp3.*;
 import org.slf4j.Logger;

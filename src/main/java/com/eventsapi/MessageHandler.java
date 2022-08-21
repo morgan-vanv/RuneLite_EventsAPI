@@ -1,8 +1,8 @@
-package com.EventsAPI;
+package com.eventsapi;
 
-import com.EventsAPI.enums.MESSAGE_EVENT;
-import com.EventsAPI.interfaces.ApiConnectable;
-import com.EventsAPI.interfaces.Sendable;
+import com.eventsapi.enums.MESSAGE_EVENT;
+import com.eventsapi.interfaces.ApiConnectable;
+import com.eventsapi.interfaces.Sendable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MessageHandler{
-    private Map<MESSAGE_EVENT, com.EventsAPI.MessageChannel> eventChannels;
+    private Map<MESSAGE_EVENT, com.eventsapi.MessageChannel> eventChannels;
     private ApiConnectable apiConnection;
     private static final double GAME_TICKS_PER_SECOND = 0.6;
     private static final Logger logger = LoggerFactory.getLogger(MessageHandler.class);
@@ -23,9 +23,9 @@ public class MessageHandler{
 
         //Events which are 'latest only' are sent every X game ticks when often updates are occuring
         //Other events use the sendEventNow function if they are time important, such as Level Ups, Quest Completes, etc
-        eventChannels.put(MESSAGE_EVENT.BANK, new com.EventsAPI.MessageChannel(secondsToGameTicks(10)));
-        eventChannels.put(MESSAGE_EVENT.INVO, new com.EventsAPI.MessageChannel(secondsToGameTicks(2)));
-        eventChannels.put(MESSAGE_EVENT.EQUIPMENT, new com.EventsAPI.MessageChannel(secondsToGameTicks(2)));
+        eventChannels.put(MESSAGE_EVENT.BANK, new com.eventsapi.MessageChannel(secondsToGameTicks(10)));
+        eventChannels.put(MESSAGE_EVENT.INVO, new com.eventsapi.MessageChannel(secondsToGameTicks(2)));
+        eventChannels.put(MESSAGE_EVENT.EQUIPMENT, new com.eventsapi.MessageChannel(secondsToGameTicks(2)));
     }
 
     private int secondsToGameTicks(int seconds){
@@ -35,7 +35,7 @@ public class MessageHandler{
     //Gather all messages from the queues into once list
     private List<Sendable> getMessagesFromQueues(){
         List<Sendable> messages = new ArrayList<>();
-        for(com.EventsAPI.MessageChannel channel : eventChannels.values()){
+        for(com.eventsapi.MessageChannel channel : eventChannels.values()){
             Sendable message = channel.getMessageToSend();
             if(message != null){
                 messages.add(message);
@@ -52,7 +52,7 @@ public class MessageHandler{
 
     //Update the messages and determine when to send, prevents spamming (Shift dropping, gear swapping, etc)
     public void processGameTicks(){
-        for(com.EventsAPI.MessageChannel channel : eventChannels.values()){
+        for(com.eventsapi.MessageChannel channel : eventChannels.values()){
             channel.processGameTick();
         }
 

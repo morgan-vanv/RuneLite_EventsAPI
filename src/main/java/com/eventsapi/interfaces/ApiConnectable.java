@@ -1,4 +1,4 @@
-package com.EventsAPI.interfaces;
+package com.eventsapi.interfaces;
 
 import java.util.List;
 

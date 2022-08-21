@@ -1,4 +1,4 @@
-package com.EventsAPI.pojos;
+package com.eventsapi.pojos;
 
 import lombok.Getter;
 import lombok.Setter;

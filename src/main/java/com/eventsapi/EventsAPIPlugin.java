@@ -1,4 +1,4 @@
-package com.EventsAPI;
+package com.eventsapi;
 
 // RuneLite & General Imports
 import com.google.inject.Provides;
@@ -17,15 +17,13 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
 // Local Imports
-import com.EventsAPI.enums.LOGIN_STATE;
-import com.EventsAPI.interfaces.ApiConnectable;
-import com.EventsAPI.EventsAPIConfig;
-import com.EventsAPI.notifications.*;
-import com.EventsAPI.enums.MESSAGE_EVENT;
-import com.EventsAPI.pojos.BankItem;
-import com.EventsAPI.pojos.QuestInfo;
-import com.EventsAPI.utils.CommonUtility;
-import com.EventsAPI.MessageHandler;
+import com.eventsapi.enums.LOGIN_STATE;
+import com.eventsapi.interfaces.ApiConnectable;
+import com.eventsapi.notifications.*;
+import com.eventsapi.enums.MESSAGE_EVENT;
+import com.eventsapi.pojos.BankItem;
+import com.eventsapi.pojos.QuestInfo;
+import com.eventsapi.utils.CommonUtility;
 
 import java.util.*;
 import org.slf4j.Logger;

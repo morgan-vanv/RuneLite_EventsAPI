@@ -1,8 +1,8 @@
-package com.EventsAPI.notifications;
+package com.eventsapi.notifications;
 
-import com.EventsAPI.interfaces.Sendable;
-import com.EventsAPI.pojos.QuestInfo;
-import com.EventsAPI.utils.Endpoint;
+import com.eventsapi.interfaces.Sendable;
+import com.eventsapi.pojos.QuestInfo;
+import com.eventsapi.utils.Endpoint;
 import lombok.Getter;
 import lombok.Setter;
 import net.runelite.api.QuestState;

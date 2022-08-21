@@ -1,4 +1,4 @@
-package com.EventsAPI.utils;
+package com.eventsapi.utils;
 
 import net.runelite.api.Item;
 
