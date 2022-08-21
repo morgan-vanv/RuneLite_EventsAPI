@@ -37,7 +37,7 @@ More information will come on the README in the future as this project becomes m
 
 ### TODO:
 
-- make it even more better
+- make it even more betterer
 
 ### Future Features / Potential Use Cases
 
