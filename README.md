@@ -16,7 +16,7 @@ More information will come on the README in the future as this project becomes m
 
 ### TODO:
 
-- 
+- make it better
 
 ### Future Features / Potential Use Cases
 
