@@ -1,0 +1,41 @@
+~ ORIGINAL LICENSE FROM osrsevents by llamaXc ~
+
+    BSD 2-Clause License
+
+    Copyright (c) 2021, llamaXc
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this
+       list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright notice,
+       this list of conditions and the following disclaimer in the documentation
+       and/or other materials provided with the distribution.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+    DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+~ LICENSE ADDITIONS & ADDENDA FROM EventsApi by Morgan Van V. (2022) ~
+
+    THE ABOVE LICENSE TAKES PRECEDENT OVER THE FOLLOWING ADDENDA WHERE APPLICABLE
+    1. Use or modification of this Software constitutes an affirmation and accepting of this
+        Licensing Agreement
+    2. All future branches or modifications of this code will include credit to llamaXc or any other relevant parties.
+    3. The use of this Software (as is or modified) for any purpose that is disallowed by either the RuneLite or
+        RuneScape / Jagex Terms of Service (TOS) is forbidden as well by this Licensing Agreement.
+    4. In general, the TOS hierarchy is as follows: Jagex > RuneScape > RuneLite > This Agreement
+        Just don't use this software to break any in-game rules, or use to aid in rule-breaking.
+
+
