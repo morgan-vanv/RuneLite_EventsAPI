@@ -1,13 +1,13 @@
-package com.example;
+package com.EventsAPI;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
-public class ExamplePluginTest
+public class EventsAPIPluginTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(ExamplePlugin.class);
+		ExternalPluginManager.loadBuiltin(EventsAPIPlugin.class);
 		RuneLite.main(args);
 	}
 }
