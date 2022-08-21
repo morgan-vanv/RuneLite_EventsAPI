@@ -25,7 +25,7 @@ This plugin is customizable by the user. You choose where your data goes, and ha
 - Emit Equipped Items: `equippedItemsList`
 - Emit Inventory Items: `inventoryItemsList`
 - Emit Bank Items: `bankItemsList`
-- Emit Quest Info: `questPoints, questStates`
+- Emit Quest Info: `questPoints, questStatus`
 - Emit Login State: `loginStatus`
 
 # Use Cases / Goals
