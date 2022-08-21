@@ -348,14 +348,15 @@ public class EventsAPIPlugin extends Plugin
 
 	private void createAndSendPlayerStatusNotification(){
 		int currentWorld = client.getWorld();
-		String currentHealth = "STUBBED";
-		String currentPrayer = "STUBBED";
-		//String currentPrayer = client.getVar(Prayer);
+		int currentHealth = client.getBoostedSkillLevel(Skill.HITPOINTS);
+		int maxHealth = client.getRealSkillLevel(Skill.HITPOINTS);
+		int currentPrayer = client.getBoostedSkillLevel(Skill.PRAYER);
+		int maxPrayer = client.getRealSkillLevel(Skill.PRAYER);
 		int currentRun = client.getEnergy();
 		int currentWeight = client.getWeight();
 
-		PlayerStatusNotification notification = new PlayerStatusNotification(currentWorld, currentHealth,
-				currentPrayer, currentRun, currentWeight);
+		PlayerStatusNotification notification = new PlayerStatusNotification(currentWorld, maxHealth, currentHealth,
+				maxPrayer, currentPrayer, currentRun, currentWeight);
 		messageHandler.sendEventNow(MESSAGE_EVENT.PLAYERSTATUS, notification);
 	}
 

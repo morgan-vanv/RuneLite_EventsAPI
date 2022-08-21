@@ -8,10 +8,12 @@ import lombok.Setter;
 public class PlayerStatusNotification implements Sendable {
     private static final String API_ENDPOINT = Endpoint.PLAYER_STATUS_ENDPOINT;
 
-    public PlayerStatusNotification(int currentWorld, String currentHealth, String currentPrayer,
-                                    int currentRun, int currentWeight){
+    public PlayerStatusNotification(int currentWorld, int maxHealth, int currentHealth, int maxPrayer,
+                                    int currentPrayer, int currentRun, int currentWeight){
         setCurrentWorld(currentWorld);
+        setMaxHealth(maxHealth);
         setCurrentHealth(currentHealth);
+        setMaxPrayer(maxPrayer);
         setCurrentPrayer(currentPrayer);
         setCurrentRun(currentRun);
         setCurrentWeight(currentWeight);
@@ -23,11 +25,19 @@ public class PlayerStatusNotification implements Sendable {
 
     @Getter
     @Setter
-    private String currentHealth;
+    private int maxHealth;
 
     @Getter
     @Setter
-    private String currentPrayer;
+    private int currentHealth;
+
+    @Getter
+    @Setter
+    private int maxPrayer;
+
+    @Getter
+    @Setter
+    private int currentPrayer;
 
     @Getter
     @Setter
