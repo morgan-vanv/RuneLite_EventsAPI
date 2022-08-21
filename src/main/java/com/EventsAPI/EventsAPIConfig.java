@@ -47,7 +47,7 @@ public interface EventsAPIConfig extends Config
 	@ConfigItem(
 			position = 2,
 			keyName = "emitPlayerInfo",
-			name = "Emit Player Info",
+			name = "Attach Player Info",
 			description = "An optional addition of player information to each request",
 			section = "customSettings"
 	)
