@@ -12,14 +12,13 @@ public class PlayerStatusNotification implements Sendable {
     private static final String API_ENDPOINT = Endpoint.PLAYER_STATUS_ENDPOINT;
 
     public PlayerStatusNotification(String userName, AccountType accountType, int combatLevel, int currentWorld,
-                                    WorldPoint currentWorldPoint, int currentPlane, int maxHealth, int currentHealth,
+                                    WorldPoint currentWorldPoint, int maxHealth, int currentHealth,
                                     int maxPrayer, int currentPrayer, int currentRun, int currentWeight){
         setUserName(userName);
         setAccountType(accountType);
         setCombatLevel(combatLevel);
         setWorld(currentWorld);
         setWorldPoint(currentWorldPoint);
-        setPlane(currentPlane);
         setMaxHealth(maxHealth);
         setCurrentHealth(currentHealth);
         setMaxPrayer(maxPrayer);
@@ -47,10 +46,6 @@ public class PlayerStatusNotification implements Sendable {
     @Getter
     @Setter
     private WorldPoint worldPoint;
-
-    @Getter
-    @Setter
-    private int plane;
 
     @Getter
     @Setter

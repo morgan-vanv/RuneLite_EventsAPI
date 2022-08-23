@@ -44,20 +44,20 @@ public interface EventsAPIConfig extends Config
 	)
 	String customSettings = "customSettings";
 
-	@ConfigItem(
-			position = 2,
-			keyName = "emitPlayerInfo",
-			name = "Attach Player Info",
-			description = "An optional addition of player information to each request",
-			section = "customSettings"
-	)
-	default boolean emitAttachPlayerInfo() { return true; }
+	//@ConfigItem(
+	//		position = 2,
+	//		keyName = "emitPlayerInfo",
+	//		name = "Attach Player Info",
+	//		description = "An optional addition of player information to each request",
+	//		section = "customSettings"
+	//)
+	//default boolean emitAttachPlayerInfo() { return true; }
 
 	@ConfigItem(
 			position = 3,
 			keyName = "emitPlayerState",
 			name = "Periodically Emit Player Status",
-			description = "Sends HP, Prayer, and Run Energy information periodically",
+			description = "Sends Name, Position, World, HP, Prayer, and Run Energy information periodically",
 			section = "customSettings"
 	)
 	default boolean emitPlayerState() { return true; }

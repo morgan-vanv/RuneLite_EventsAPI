@@ -354,7 +354,6 @@ public class EventsAPIPlugin extends Plugin
 		int combatLevel = temp_player.getCombatLevel();
 		int currentWorld = client.getWorld();
 		WorldPoint currentWorldPoint = temp_player.getWorldLocation();
-		int currentPlane = temp_player.getWorldLocation().getPlane();
 		int currentHealth = client.getBoostedSkillLevel(Skill.HITPOINTS);
 		int maxHealth = client.getRealSkillLevel(Skill.HITPOINTS);
 		int currentPrayer = client.getBoostedSkillLevel(Skill.PRAYER);
@@ -363,7 +362,7 @@ public class EventsAPIPlugin extends Plugin
 		int currentWeight = client.getWeight();
 
 		PlayerStatusNotification notification = new PlayerStatusNotification(userName, accountType, combatLevel, currentWorld,
-				currentWorldPoint, currentPlane, maxHealth, currentHealth, maxPrayer, currentPrayer, currentRun, currentWeight);
+				currentWorldPoint, maxHealth, currentHealth, maxPrayer, currentPrayer, currentRun, currentWeight);
 		messageHandler.sendEventNow(MESSAGE_EVENT.PLAYERSTATUS, notification);
 	}
 

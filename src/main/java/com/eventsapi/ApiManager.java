@@ -36,9 +36,9 @@ public class ApiManager implements ApiConnectable {
 
         EventWrapper eventWrapper = event.getEventWrapper();
 
-        if(config.emitAttachPlayerInfo() && client.getLocalPlayer() != null){
-            eventWrapper.setPlayerInfo(client.getLocalPlayer().getName(), client.getLocalPlayer().getCombatLevel(), client.getLocalPlayer().getWorldLocation());
-        }
+        //if(config.emitAttachPlayerInfo() && client.getLocalPlayer() != null){
+        //    eventWrapper.setPlayerInfo(client.getLocalPlayer().getName(), client.getLocalPlayer().getCombatLevel(), client.getLocalPlayer().getWorldLocation());
+        //}
 
         UUID uuid = UUID.randomUUID();
         logger.debug("Sending POST request to: " + event.getApiEndpoint());
