@@ -18,8 +18,7 @@ EventsAPI simply builds off and adapts their foundation for my uses, so credit t
 ## Security & Privacy
 This plugin is customizable by the user. You choose where your data goes, and have varying levels of configuration.
 #### Configuration Options & Outline of Data being emitted to API
-- Attach Player Info: `UserName, CombatLevel, MapPosition` (Attached to other requests)
-- Periodically Emit Player Status: `currentHealth, currentPrayer, currentRunEnergy, currentWeight`
+- Periodically Emit Player Status: `username, accountType, world, worldPosition, currentHealth, currentPrayer, currentRunEnergy, currentWeight`
 - Emit Monster Kills: `npcInfo, lootInfo`
 - Emit Level Change Updates: `allLevels`
 - Emit Equipped Items: `equippedItemsList`
@@ -33,15 +32,24 @@ The simple goal of this plugin is to be able to have a customizable amount of in
 RuneLite client to a custom API endpoint for the purpose of social progress tracking, efficiency analysis,
 general logging, as potentially even tournament purposes.
 
+Personally, I am wanting to develop heatmaps and player tracking for clans as well as my own personal blog, and hopefully
+for anyone else's open source purpose. It would be cool to be able to extend this into webapps, discord bots, etc.
+
 More information will come on the README in the future as this project becomes more defined in scope and purpose
 
 ### TODO:
 
 - make it even more betterer 
+- Develop open source tools for less technical users to be able to visualize and get use out of this data
+  (heatmaps for clans and where their members are, blog widgets to flex runescape status and gains)
 - do work on the logging / information representation side to identify potential future data category additions
 - explore if there is a way to generate this type of stuff dynamically, give user full control on what triggers their
     requests and what data they contain
 - potentially offer a premade Python/Flask script for handling/storing these requests for less technical users
+- get users so I can recieve feedback about how this plugin can be best used in the future, and maybe people will want
+    to collaborate and contribute
+- continue to refactor and deviate away from OSRSEvents. I appreciate being able to shamelessly steal your code but as
+    mentioned, this is for differing use cases
 
 ### Future Features / Potential Use Cases
 

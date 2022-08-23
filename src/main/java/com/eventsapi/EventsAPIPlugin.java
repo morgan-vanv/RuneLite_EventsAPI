@@ -5,7 +5,9 @@ import com.google.inject.Provides;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
+import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.*;
+import net.runelite.api.vars.AccountType;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
@@ -345,7 +347,13 @@ public class EventsAPIPlugin extends Plugin
 	//}
 
 	private void createAndSendPlayerStatusNotification(){
+		Player temp_player = client.getLocalPlayer();
+
+		String userName = temp_player.getName();
+		AccountType accountType = client.getAccountType();
+		int combatLevel = temp_player.getCombatLevel();
 		int currentWorld = client.getWorld();
+		WorldPoint currentWorldPoint = temp_player.getWorldLocation();
 		int currentHealth = client.getBoostedSkillLevel(Skill.HITPOINTS);
 		int maxHealth = client.getRealSkillLevel(Skill.HITPOINTS);
 		int currentPrayer = client.getBoostedSkillLevel(Skill.PRAYER);
@@ -353,11 +361,10 @@ public class EventsAPIPlugin extends Plugin
 		int currentRun = client.getEnergy();
 		int currentWeight = client.getWeight();
 
-		PlayerStatusNotification notification = new PlayerStatusNotification(currentWorld, maxHealth, currentHealth,
-				maxPrayer, currentPrayer, currentRun, currentWeight);
+		PlayerStatusNotification notification = new PlayerStatusNotification(userName, accountType, combatLevel, currentWorld,
+				currentWorldPoint, maxHealth, currentHealth, maxPrayer, currentPrayer, currentRun, currentWeight);
 		messageHandler.sendEventNow(MESSAGE_EVENT.PLAYERSTATUS, notification);
 	}
-
 
 	@Override
 	protected void shutDown() throws Exception

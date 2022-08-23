@@ -24,8 +24,8 @@ public class EventWrapper {
         return gson.toJson(this);
     }
 
-    public void setPlayerInfo(String displayName, int combatLevel, WorldPoint pos){
-        playerInfo = new PlayerInfo(displayName, combatLevel, pos);
-    }
+    //public void setPlayerInfo(String displayName, int combatLevel, WorldPoint pos){
+    //    playerInfo = new PlayerInfo(displayName, combatLevel, pos);
+    //}
 }
 
