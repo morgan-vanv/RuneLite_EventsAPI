@@ -86,7 +86,7 @@ public class EventsAPIPlugin extends Plugin
 		this.detectQuestEvents();
 		this.detectBankWindowClosing();
 
-		if (tickIterator == this.config.tickDelay()) {
+		if (tickIterator >= this.config.tickDelay()) {
 			this.createAndSendPlayerStatusNotification();
 			tickIterator = 0;
 		}
