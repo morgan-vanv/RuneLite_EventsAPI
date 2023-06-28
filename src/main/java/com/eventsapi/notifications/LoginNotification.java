@@ -9,9 +9,14 @@ import lombok.Setter;
 public class LoginNotification implements Sendable {
     private static final String API_ENDPOINT = Endpoint.LOGIN_NOTIFICATION;
 
-    public LoginNotification(LOGIN_STATE state){
+    public LoginNotification(String username, LOGIN_STATE state){
+        this.setUsername(username);
         this.setState(state);
     }
+
+    @Getter
+    @Setter
+    private String username;
 
     @Getter
     @Setter
