@@ -107,7 +107,13 @@ public class EventsAPIPlugin extends Plugin
 	public void onGameStateChanged(GameStateChanged state){
 		if(state.getGameState() == GameState.LOGIN_SCREEN){
 			if(hasLoggedIn == true){
-				LoginNotification loggedOut = new LoginNotification(LOGIN_STATE.LOGGED_OUT);
+				String username = "";
+				Player tempPlayer = this.client.getLocalPlayer();
+				if(tempPlayer != null){
+					username = tempPlayer.getName();
+				}
+				LoginNotification loggedOut = new LoginNotification(username, LOGIN_STATE.LOGGED_OUT);
+				System.out.println(loggedOut);
 				messageHandler.sendEventNow(MESSAGE_EVENT.LOGIN, loggedOut);
 				this.hasLoggedIn = false;
 			}
@@ -118,7 +124,13 @@ public class EventsAPIPlugin extends Plugin
 
 		if(state.getGameState() == GameState.LOGGED_IN){
 			this.hasLoggedIn = true;
-			LoginNotification loggedIn = new LoginNotification((LOGIN_STATE.LOGGED_IN));
+			String username = "";
+			Player tempPlayer = this.client.getLocalPlayer();
+			if(tempPlayer != null){
+				username = tempPlayer.getName();
+			}
+			LoginNotification loggedIn = new LoginNotification(username, (LOGIN_STATE.LOGGED_IN));
+			System.out.println(loggedIn);
 			messageHandler.sendEventNow(MESSAGE_EVENT.LOGIN, loggedIn);
 		}
 	}
