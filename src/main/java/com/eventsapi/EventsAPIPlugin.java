@@ -10,6 +10,7 @@ import net.runelite.api.events.*;
 import net.runelite.api.vars.AccountType;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
+import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.NpcLootReceived;
@@ -39,6 +40,9 @@ public class EventsAPIPlugin extends Plugin
 {
 	@Inject
 	private Client client;
+
+	@Inject
+	private ClientThread clientThread;
 
 	@Inject
 	private EventsAPIConfig config;
@@ -107,12 +111,7 @@ public class EventsAPIPlugin extends Plugin
 	public void onGameStateChanged(GameStateChanged state){
 		if(state.getGameState() == GameState.LOGIN_SCREEN){
 			if(hasLoggedIn == true){
-				String username = "";
-				Player tempPlayer = this.client.getLocalPlayer();
-				if(tempPlayer != null){
-					username = tempPlayer.getName();
-				}
-
+				String username = this.client.getLocalPlayer().getName();
 				LoginNotification loggedOut = new LoginNotification(username, LOGIN_STATE.LOGGED_OUT);
 				messageHandler.sendEventNow(MESSAGE_EVENT.LOGIN, loggedOut);
 				this.hasLoggedIn = false;
@@ -124,8 +123,16 @@ public class EventsAPIPlugin extends Plugin
 
 		if(state.getGameState() == GameState.LOGGED_IN){
 			this.hasLoggedIn = true;
-			LoginNotification loggedIn = new LoginNotification("", (LOGIN_STATE.LOGGED_IN));
-			messageHandler.sendEventNow(MESSAGE_EVENT.LOGIN, loggedIn);
+			this.clientThread.invokeLater(() ->
+			{
+				String username = client.getLocalPlayer().getName();
+				if(username == null){
+					return false;
+				}
+				LoginNotification loggedIn = new LoginNotification(username, (LOGIN_STATE.LOGGED_IN));
+				messageHandler.sendEventNow(MESSAGE_EVENT.LOGIN, loggedIn);
+				return true;
+			});
 		}
 	}
 
