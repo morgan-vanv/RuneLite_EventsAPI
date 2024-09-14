@@ -8,13 +8,13 @@ import net.runelite.api.Item;
 
 import java.util.List;
 
-public class NpcKillNotification implements Sendable {
+public class LootNotification implements Sendable {
 
-    private final static String API_ENDPOINT = Endpoint.NPC_KILL_ENDPOINT;
+    private final static String API_ENDPOINT = Endpoint.LOOT_ENDPOINT;
 
-    public NpcKillNotification(int npcId, List<Item> items, int gePrice, String userName){
+    public LootNotification(int widgetId, List<Item> items, int gePrice, String userName){
 
-        this.setNpcId(npcId);
+        this.setWidgetId(widgetId);
         this.setItems(items);
         this.setGePrice(gePrice);
         this.setUserName(userName);
@@ -31,7 +31,7 @@ public class NpcKillNotification implements Sendable {
 
     @Getter
     @Setter
-    private int npcId;
+    private int widgetId;
 
     @Getter
     @Setter

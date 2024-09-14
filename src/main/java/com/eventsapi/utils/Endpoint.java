@@ -2,6 +2,7 @@ package com.eventsapi.utils;
 
 public final class Endpoint {
     public static final String NPC_KILL_ENDPOINT = "npc_kill/";
+    public static final String LOOT_ENDPOINT = "loot/";
     public static final String LEVEL_CHANGE_ENDPOINT = "level_change/";
     public static final String QUEST_POINT_ENDPOINT = "quest_change/";
     public static final String EQUIPPED_ITEMS_ENDPOINT = "equipped_items/";

@@ -19,6 +19,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
 // Local Imports
+import com.eventsapi.enums.WIDGET_IDS;
 import com.eventsapi.enums.LOGIN_STATE;
 import com.eventsapi.interfaces.ApiConnectable;
 import com.eventsapi.notifications.*;
@@ -33,7 +34,7 @@ import org.slf4j.LoggerFactory;
 
 @Slf4j
 @PluginDescriptor(
-	name = "EventsAPI"
+		name = "EventsAPI"
 )
 public class EventsAPIPlugin extends Plugin
 {
@@ -215,18 +216,140 @@ public class EventsAPIPlugin extends Plugin
 		}
 	}
 
+	@Subscribe
+	public void onWidgetLoaded(WidgetLoaded widgetLoaded) {
 
-	private void createAndSendLootNotification(NpcLootReceived lootReceived){
+		int groupId = widgetLoaded.getGroupId();
+		logger.debug("Widget loaded: {}", groupId);
+		if (!IsLoggedIn() || !IsSupportedWidget(groupId)) {
+			return;
+		}
+		logger.debug("Supported widget: {}", groupId);
+		this.createAndSendWidgetNotification(widgetLoaded);
+	}
+
+	private boolean IsLoggedIn() {
+		return client.getGameState() == GameState.LOGGED_IN;
+	}
+
+	private boolean IsSupportedWidget(int WidgetId) {
+		logger.debug("WidgetID: " + WidgetId);
+		WIDGET_IDS widget = WIDGET_IDS.fromWidgetId(WidgetId); // This will return the corresponding WIDGET_IDS or null
+		return widget != null; // Return true if the widget is found, false otherwise
+	}
+
+
+
+
+	private void createAndSendLootNotification(NpcLootReceived lootReceived) {
+		// Log that loot notification is being prepared
+		logger.debug("Preparing loot notification for NPC: {}", lootReceived.getNpc().getName());
+
+		Player localPlayer = client.getLocalPlayer();
+		String userName = localPlayer.getName();
 		int geTotalPrice = 0;
 		int npcId = lootReceived.getNpc().getId();
 		List<Item> items = new ArrayList<>();
-		for(ItemStack item : lootReceived.getItems()){
-			items.add(new Item(item.getId(), item.getQuantity()));
-			geTotalPrice += item.getQuantity() * itemManager.getItemComposition(item.getId()).getPrice();
+
+		// Loop through each item in the loot
+		for (ItemStack itemStack : lootReceived.getItems()) {
+			int itemId = itemStack.getId();
+			int itemQuantity = itemStack.getQuantity();
+			int itemPrice = 0;
+			int totalItemPrice = 0;
+			String itemName = itemManager.getItemComposition(itemStack.getId()).getName();
+
+			// Log each item's ID, quantity, and total price
+			logger.debug("Item ID: {}, Quantity: {}, Item Price: {}, Total Item Price: {}",
+					itemId, itemQuantity, itemPrice, totalItemPrice);
+
+			items.add(new Item(itemId, itemQuantity));
+			geTotalPrice += itemStack.getQuantity() * itemManager.getItemComposition(itemStack.getId()).getPrice();
 		}
-		NpcKillNotification notification = new NpcKillNotification(npcId, items, geTotalPrice);
+
+		// Log the total price of the received loot
+		logger.debug("Total GE Price of Loot: {}", geTotalPrice);
+
+		// Create and send the loot notification
+		NpcKillNotification notification = new NpcKillNotification(npcId, items, geTotalPrice, userName);
+
+		// Log before sending the notification
+		logger.debug("Sending loot notification for NPC ID: {}, Player: {}", npcId, userName);
+
 		messageHandler.sendEventNow(MESSAGE_EVENT.LOOT, notification);
+
+		// Log that the notification has been sent
+		logger.debug("Loot notification sent successfully for NPC ID: {}, Player: {}", npcId, userName);
 	}
+
+	private void createAndSendWidgetNotification(WidgetLoaded widgetLoaded) {
+		// Log that widget notification is being prepared
+		logger.info("Preparing widget notification for Widget ID: {}", widgetLoaded.getGroupId());
+
+		// Get the local player and check if they are valid
+		Player localPlayer = client.getLocalPlayer();
+		if (localPlayer == null) {
+			logger.error("Local player not found. Unable to send widget notification.");
+			return;
+		}
+		String userName = localPlayer.getName();
+
+		// Get the widget ID from the loaded widget
+		int widgetId = widgetLoaded.getGroupId();
+
+		// Find the corresponding WIDGET_IDS enum based on the widget ID
+		WIDGET_IDS widget = WIDGET_IDS.fromWidgetId(widgetId);
+		if (widget == null) {
+			logger.error("Widget not supported: {}", widgetId);
+			return;
+		}
+
+		ItemContainer container = client.getItemContainer(widget.getInventoryId());
+		if (container == null) {
+			return ;  // Return an empty list if no items found
+		}
+
+
+		List<Item> items = new ArrayList<>();
+		int totalItemPrice = 0;
+		// Loop through each item in the loot
+		for (Item item : container.getItems()) {
+			int itemId = item.getId();
+			int itemQuantity = item.getQuantity();
+
+			// Initialize the item price and total price variables
+			int itemPrice = itemManager.getItemPrice(itemId);
+			totalItemPrice = itemPrice * itemQuantity;
+			String itemName = itemManager.getItemComposition(itemId).getName();
+
+			// Log each item's ID, quantity, and total price
+			logger.debug("Item ID: {}, Name: {}, Quantity: {}, Item Price: {}, Total Item Price: {}",
+					itemId, itemName, itemQuantity, itemPrice, totalItemPrice);
+
+			// Add the item to the list of items
+			items.add(new Item(itemId, itemQuantity));
+
+		}
+
+
+		// Log the supported widget
+		logger.debug("Found supported widget: {}", widget.getName());
+
+		// Create the widget notification
+		LootNotification notification = new LootNotification(widgetId, items, totalItemPrice, userName);
+
+		// Log the sending of the notification
+		logger.debug("Sending widget notification for Widget ID: {}, Player: {}", widgetId, userName);
+
+		// Send the notification
+		messageHandler.sendEventNow(MESSAGE_EVENT.LOOT, notification);
+
+		// Log that the notification was sent successfully
+		logger.debug("Widget notification sent successfully for Widget ID: {}, Player: {}", widgetId, userName);
+	}
+
+
+
 
 	private void createAndQueueBankNotification(){
 		//Ensure bankContainer is valid
