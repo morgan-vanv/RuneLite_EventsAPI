@@ -76,7 +76,9 @@ public class ApiManager implements ApiConnectable {
             logger.warn("Failed to send, please check endpoint: " + endpoint + " and token: " + token);
             return false;
         }
-
+        if (event instanceof PlayerStatusNotification){
+            return config.emitPlayerState();
+        }
         if (event instanceof BankNotification){
             return config.emitBankItems();
         }
