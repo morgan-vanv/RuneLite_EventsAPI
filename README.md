@@ -1,6 +1,8 @@
 # **EventsAPI Plugin for RuneLite** 
 ### _by Morgan Van V._
 
+**NOTE: THIS PLUGIN IS NOW DEPRECATED AND ABANDONED** this is due to feedback from the RuneLite team regarding the potential for abuse that could arise from this plugin
+
 **NOTE: This plugin was heavily inspired by the OSRSEvents Plugin by llamaXc [(REPO)](targetURL="https://github.com/llamaXc/osrs-events")**
     
     https://github.com/llamaXc/osrs-events
